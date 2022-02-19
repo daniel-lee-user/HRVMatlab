@@ -5,7 +5,9 @@
 %Made by Daniel Lee 8/1/2020
 
 clear;  
-string = "4_sessions_dan2.xdf"; %change this to change data
+%string = "4_sessions_dan2.xdf"; %change this to change data
+string = "2022-01-14-timothy.xdf"; %change this to change data
+
 stream = load_xdf(string);
 y = stream{2}.time_series(1,:);
 timestamps = stream{1}.time_stamps;

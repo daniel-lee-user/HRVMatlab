@@ -3,10 +3,11 @@ function f = hrvCalcFunction(n)
     [pks, locs] = findpeaks(n,'MinPeakDistance', min_peak_dist, 'MinPeakProminence',150); 
     %[pks, locs] = findpeaks(n,'MinPeakDistance', min_peak_dist, 'MinPeakHeight',100); 
     loc_size = size(locs);
-    disp(loc_size);
+    %disp('loc_size:')
+    %disp(loc_size);
     s_int= zeros(9,1);
     s_int2 = zeros(9,1);
-    locs = 1000*locs/128;
+    locs = 1000*locs/128; %convert data point indicies to milliseconds
     for q = 2:length(locs) %subtract locations to find heartbeat interval (in milliseconds) between peaks (heartbeat) 
         s_int(q-1)=locs(q)-locs(q-1);
     end

@@ -6,6 +6,8 @@
 
 clear;  
 string = "4_sessions_dan2.xdf"; %change this to change data
+%string = "2022-01-14-timothy-2.xdf"; %change this to change data
+
 stream = load_xdf(string);
 y = stream{2}.time_series(1,:);
 timestamps = stream{1}.time_stamps;
@@ -15,6 +17,7 @@ timestamps = stream{1}.time_stamps;
 %split is the array holding all the start and end times of each segment
 
 rest = y(1:split(1));
+disp(rest) % debug output
 HRV = zeros(2,1);
 HRV(1) = hrvCalcFunction(rest); %calculate HRV function
 for z = 2:length(split)
@@ -28,7 +31,9 @@ two_min = cell2mat(two_min);
 tw_sec = {HRV(4), HRV(6), HRV(10), HRV(16)};
 tw_sec = cell2mat(tw_sec);
 
-string = "4_sessions_tim1.xdf"; %change this to change data
+%string = "4_sessions_tim1.xdf"; %change this to change data
+string = "2022-01-14-timothy.xdf"; %change this to change data
+
 stream = load_xdf(string);
 y = stream{2}.time_series(1,:);
 timestamps = stream{1}.time_stamps;
